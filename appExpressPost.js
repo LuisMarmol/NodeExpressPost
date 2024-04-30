@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 
-app.Get((req, res, next) => {
+app.use((req, res, next) => {
     let body = '';
     
     req.on('data', (chunk) => {
@@ -21,7 +21,7 @@ app.Get((req, res, next) => {
 
 });
 
-app.Post((req, res, next) => {
+app.use((req, res, next) => {
     
     if (req.body) {
         res.send('User: ' + req.body.name);
